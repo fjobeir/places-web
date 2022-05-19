@@ -1,5 +1,9 @@
 .category {
     margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* box-sizing: border-box; */
 }
 .categoryIcon {
     width: 80px;
@@ -28,4 +32,16 @@
     margin-top: 15px;
     text-align: center;
     font-size: smaller;
+}
+
+#categoriesBar {
+    max-height: 100vh;
+    overflow: hidden;
+}
+#categoriesBarContent {
+    max-height: 100vh;
+    overflow: auto;
+    width: calc(100% + 20px);
+    padding-right: 20px;
+    box-sizing: border-box;
 }

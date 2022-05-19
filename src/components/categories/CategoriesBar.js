@@ -17,15 +17,26 @@ const CategoriesBar = () => {
             .catch(e => console.log(e))
     }, [])
 
-    return <div>
-        {categories.map((category, i) => {
-            return <div className={`category`} key={i} onClick={() => { appCtx.setPlaces(category.Places) }}>
-                <div className={`categoryIcon`}>
-                    <img src={category?.icon} alt={category.title} />
+    const loadPlaces = (places) => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                console.log(position)
+            });
+        }
+        appCtx.setPlaces(places)
+    }
+
+    return <div id="categoriesBar">
+        <div id="categoriesBarContent">
+            {categories.map((category, i) => {
+                return <div className={`category`} key={i} onClick={() => { loadPlaces(category.Places) }}>
+                    <div className={`categoryIcon`}>
+                        <img src={category?.icon} alt={category.title} />
+                    </div>
+                    <div className="categoryTitle">{category.title}</div>
                 </div>
-                <div className="categoryTitle">{category.title}</div>
-            </div>
-        })}
+            })}
+        </div>
     </div>
 }
 
