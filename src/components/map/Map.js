@@ -11,7 +11,6 @@ const PlacesMap = ({ center, zoom, children }) => {
             zoom,
         }));
     }, []);
-    // return (<div ref={mapRef} id="map" />)
     return <>
         <div ref={mapRef} id='map' />
         {React.Children.map(children, (child) => {
@@ -47,7 +46,7 @@ const Marker = (options) => {
 };
 
 const Map = () => {
-    return <Wrapper apiKey='AIzaSyDydUU6hIApyvbtL91GpVB53_C91O-PFaU'>
+    return <Wrapper apiKey=''>
         <PlacesMap center={{ lat: 40.9, lng: 28.5 }} zoom={9}>
             <Marker position={{ lat: 40.9, lng: 28.5 }} title="Hello World!" />
         </PlacesMap>
