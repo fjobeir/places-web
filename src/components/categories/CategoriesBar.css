@@ -1,7 +1,9 @@
 .category {
+    margin: 15px;
+}
+.categoryIcon {
     width: 80px;
     height: 80px;
-    margin: 15px;
     border: 1px solid #ff8a66;
     display: flex;
     justify-content: center;
@@ -11,10 +13,19 @@
     transition: all .25s linear;
     cursor: pointer;
 }
-.category:hover {
+.category:hover .categoryIcon {
     filter: grayscale(0);
 }
-.category img {
+.category:hover .categoryTitle {
+    color: #ff8166;
+}
+.categoryIcon img {
     width: 60px;
     height: auto;
+}
+.categoryTitle {
+    transition: all .25s linear;
+    margin-top: 15px;
+    text-align: center;
+    font-size: smaller;
 }

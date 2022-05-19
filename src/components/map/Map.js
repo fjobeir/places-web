@@ -1,6 +1,7 @@
 import './Map.css'
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
+import { AppContext } from '../../contexts/AppContext';
 
 const PlacesMap = ({ center, zoom, children }) => {
     const mapRef = useRef(null)
@@ -15,7 +16,6 @@ const PlacesMap = ({ center, zoom, children }) => {
         <div ref={mapRef} id='map' />
         {React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
-                // set the map prop on the child component
                 return React.cloneElement(child, { map });
             }
         })}
@@ -29,8 +29,6 @@ const Marker = (options) => {
         if (!marker) {
             setMarker(new window.google.maps.Marker());
         }
-
-        // remove marker from map on unmount
         return () => {
             if (marker) {
                 marker.setMap(null);
@@ -46,9 +44,15 @@ const Marker = (options) => {
 };
 
 const Map = () => {
-    return <Wrapper apiKey=''>
+    const appCtx = useContext(AppContext)
+    console.log(appCtx)
+    return <Wrapper apiKey='AIzaSyDydUU6hIApyvbtL91GpVB53_C91O-PFaU'>
         <PlacesMap center={{ lat: 40.9, lng: 28.5 }} zoom={9}>
-            <Marker position={{ lat: 40.9, lng: 28.5 }} title="Hello World!" />
+            {
+                appCtx.places.map((place, i) => {
+                    return <Marker position={{ lat: place.latitude, lng: place.longitude }} key={i} />
+                })
+            }
         </PlacesMap>
     </Wrapper>
 }
