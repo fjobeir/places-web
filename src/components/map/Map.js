@@ -271,7 +271,7 @@ const Marker = (options) => {
 const Map = () => {
     const appCtx = useContext(AppContext)
     console.log(appCtx)
-    return <Wrapper apiKey='AIzaSyDydUU6hIApyvbtL91GpVB53_C91O-PFaU'>
+    return <Wrapper>
         <PlacesMap center={{ lat: 40.9, lng: 28.5 }} zoom={9}>
             {
                 appCtx.places.map((place, i) => {
