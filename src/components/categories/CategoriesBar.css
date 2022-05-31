@@ -45,3 +45,34 @@
     padding-right: 20px;
     box-sizing: border-box;
 }
+
+
+@media screen and (max-width: 992px) {
+    .category {
+        margin: 7px;
+    }
+    .categoryIcon {
+        width: 60px;
+        height: 60px;
+    }
+    .categoryIcon img {
+        width: 45px;
+    }
+    .categoryTitle {
+        font-size: 12px;
+        margin-top: 7px;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    #categoriesBarContent {
+        display: flex;
+    }
+    #categoriesBarContent {
+        width: 100%;
+        padding-right: 0;
+        height: calc(100% + 20px);
+        padding-bottom: 20px;
+    }
+}

@@ -1,3 +1,9 @@
 #container {
-  display: flex;
+	display: flex;
+}
+
+@media screen and (max-width: 576px) {
+	#container {
+		flex-direction: column;
+	}
 }
